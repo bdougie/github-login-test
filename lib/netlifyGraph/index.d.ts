@@ -57,7 +57,7 @@ errors: Array<GraphQLError>;
 };
 
 /**
- * An empty query to start from
+ * Query to find user id info from github
  */
 export function fetchFindGitHubUserIdForReal(
   variables: FindGitHubUserIdForRealInput,
