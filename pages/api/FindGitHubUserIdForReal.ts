@@ -9,7 +9,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   accessToken = req.headers["authorization"]?.split(" ")[1];
 
   //// If you want to use the API with your own access token:
-  // accessToken = process.env.ONEGRAPH_AUTHLIFY_TOKEN;
+  accessToken = process.env.ONEGRAPH_AUTHLIFY_TOKEN;
       
   const eventBodyJson = req.body || {};
 
@@ -32,7 +32,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Type", "application/json");
 
   return res.status(200).json({
-    errors, data
+    errors, data: data.gitHub.user.databaseId
   });
 };
 

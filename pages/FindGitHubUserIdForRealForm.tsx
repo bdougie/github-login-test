@@ -34,12 +34,12 @@ export default function Form(props) {
   return (
     <div className="container">
       <Head>
-        <title>FindGitHubUserIdForReal form</title>
+        <title>When did you sign up to GitHub?</title>
       </Head>
       <main>
         <h1>{props.title}</h1>
         <form onSubmit={event => { event.preventDefault(); submitForm() }}>
-            <label htmlFor="login">login</label><input id="login" type="text" onChange={updateFormVariables(setFormVariables, ["login"], (value) => value)} />
+            <label htmlFor="login">Find out</label><input id="login" type="text" onChange={updateFormVariables(setFormVariables, ["login"], (value) => value)} />
             <input type="submit" />
           </form>
         {needsLoginService ? (
@@ -57,9 +57,9 @@ export default function Form(props) {
         >
           {`Log in to ${needsLoginService}`}
         </button>) 
-        : null}
-        <pre>{JSON.stringify(formVariables, null, 2)}</pre>
-        <pre>{JSON.stringify(result, null, 2)}</pre>
+        : ""}
+        This user is
+        <pre>{JSON.stringify(result.data, null, 2)}</pre>
       </main>
     </div>
   )
@@ -73,7 +73,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      title: "FindGitHubUserIdForReal form",
+      title: "When did you sign up to GitHub?",
       siteId: siteId
     }
   }

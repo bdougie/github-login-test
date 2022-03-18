@@ -1,4 +1,4 @@
-query FindGitHubUserIdForReal($login: String!) @netlify(id: """e85fa83f-351a-4828-803d-3db70ff93828""", doc: """An empty query to start from""") {
+query FindGitHubUserIdForReal($login: String!) @netlify(id: """e85fa83f-351a-4828-803d-3db70ff93828""", doc: """Query to find user id info from github""") {
   gitHub {
     user(login: $login) {
       id
